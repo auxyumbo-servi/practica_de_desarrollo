@@ -1,0 +1,25 @@
+Screen {
+    align: center middle;
+}
+
+
+#buscar {
+    width: 80%;
+}
+
+
+#resultados {
+
+    width: 40%;
+    height: 80%;
+
+}
+
+
+#detalle {
+
+    width: 60%;
+    border: solid green;
+    padding: 2;
+
+}

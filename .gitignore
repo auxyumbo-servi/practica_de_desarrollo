@@ -1,0 +1,51 @@
+# Entorno virtual
+venv/
+.env/
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Bases de datos
+*.db
+*.sqlite3
+
+# Excel temporales
+~$*.xlsx
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.pyc
+
+# Entornos virtuales
+venv/
+entornovenv/
+.env/
+
+# Bases de datos
+*.db
+*.sqlite3
+
+# Excel temporales
+~$*.xlsx
+
+# Configuración editor
+.vscode/
+
+# Logs
+*.log
+
+ejemplo_integracion/
