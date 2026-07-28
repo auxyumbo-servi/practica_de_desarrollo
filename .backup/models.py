@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Date, Float, ForeignKey
 from sqlalchemy.orm import relationship
-from database import Base
 
+Base = None
 #==== Datos Basicos de Formulario ====#
 
 class Cliente(Base):
