@@ -1,0 +1,14 @@
+nicegui
+sqlalchemy
+pandas
+openpyxl
+reportlab
+weasyprint
+pydantic
+python-dotenv
+python-dateutil
+matplotlib
+plotly
+pytest
+black
+ruff
