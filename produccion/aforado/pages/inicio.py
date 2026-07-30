@@ -1,68 +1,57 @@
 from nicegui import ui
 
-with ui.card().classes("w-full"):
 
-    with ui.row().classes("w-full"):
+with ui.header().classes('bg-yellow-400 text-black w-full'):
+        fecha = ui.date_input(label='Fecha' )
+        tipo_servicio = ui.checkbox('Servicios S&S')
 
-        fecha = ui.date()
+with ui.column().style(
+    'width: 50%; '
+    'max-width: 1400px; '
+    'margin: auto;'
+):
 
-        cliente = ui.select(
-            options=[],
-            label="Cliente"
-        )
+    with ui.card().classes(
+        'widt: 50%;'
+        'margin: auto;'
+        ):
 
-        empresa = ui.select(
-            options=[]
-        )
+        with ui.row().classes('justify-center;'
+                            'w-full'):
+            
+            cliente = ui.select(
+                options=[],
+                label='Cliente',
+                with_input=True
+            )
 
-    with ui.row().classes("w-full"):
+            empresa = ui.select(
+                options=[],
+                label='Empresa',
+                with_input=True
+            )
 
-        servicio = ui.select(
-            ["Normal","SyS"]
-        )
+        with ui.row().classes('w-full;'
+                            'wight:50%'):
 
-        tipo = ui.select(
-            ["Ordinario","Especial"]
-        )
+            servicio = ui.select(
+                [],
+                with_input=True
+            )
 
-    observacion = ui.textarea("Observaciones")
-
-
-rows = [
-
-]
-
-tabla = ui.table(
-    columns=[
-        {'name': 'recipiente', 'label': 'Recipiente', 'field': 'recipiente'},
-        {'name': 'cantidad', 'label': 'Cantidad', 'field': 'cantidad'},
-        {'name': 'valor', 'label': 'Valor', 'field': 'valor'},
-        {'name': 'subtotal', 'label': 'Subtotal', 'field': 'subtotal'},
-    ],
-    rows=rows,
-)
+            tipo = ui.select(
+                [],
+                with_input=True
+            )
+            guardar = ui.button('GUARDAR').classes('justify-center;').props('bg-yellow-450 text-color=black')
 
 
-    
-with ui.row():
-    recipiente = ui.select(
-        ['55GL', '1000L', '2YD', '3YD'],
-        label='Recipiente'
-    )
 
-    cantidad = ui.number('Cantidad', value=1)
+with ui.footer().classes('bg-yellow-400 text-black justify-around'):
+    ui.button('atras', on_click=lambda: ui.navigate.to('/')).props('bg-yellow-450 text-color=black')
+    ui.button('Crear cliente', on_click=lambda: ui.navigate.to('/Newcliente')).props('bg-yellow-450 text-color=black')
+    ui.button('Crear Empresa', on_click=lambda: ui.navigate.to('/NewEmpresa')) .props('bg-yellow-450 text-color=black')
+    ui.button('Produccion', on_click=lambda: ui.navigate.to('/produccion')) .props('bg-yellow-450 text-color=black')
 
-def agregar():
-    subtotal = cantidad.value * 25000
 
-    rows.append({
-        'recipiente': recipiente.value,
-        'cantidad': cantidad.value,
-        'valor': 25000,
-        'subtotal': subtotal,
-    })
-
-    tabla.update()
-
-ui.button('Agregar', on_click=agregar)
 ui.run()
