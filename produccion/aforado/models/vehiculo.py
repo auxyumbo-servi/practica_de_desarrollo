@@ -19,6 +19,9 @@ class Vehiculo(Base):
         index=True
     )
 
+    valor: Mapped[int] = mapped_column(
+        Integer)
+
     registros: Mapped[list["RegistroServicio"]] = relationship(
         back_populates="vehiculo"
     )

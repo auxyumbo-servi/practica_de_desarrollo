@@ -8,6 +8,7 @@ from data.conexion import Base
 
 if TYPE_CHECKING:
     from .registro_servicio import RegistroServicio
+    from .tarifa import Tarifa
 
 
 class Cliente(Base):
@@ -20,6 +21,12 @@ class Cliente(Base):
         unique=True
     )
 
+    contrato: Mapped[str]
+
     registros: Mapped[list["RegistroServicio"]] = relationship(
+        back_populates="cliente"
+    )
+
+    tarifas: Mapped[list["Tarifa"]] = relationship(
         back_populates="cliente"
     )

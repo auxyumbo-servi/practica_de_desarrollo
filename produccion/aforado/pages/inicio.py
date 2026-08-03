@@ -1,6 +1,6 @@
 from nicegui import ui
 
-@ui.page('/')
+@ui.page('/inicio')
 def inicio():
     
     with ui.header().classes('bg-yellow-400 text-black w-full'):

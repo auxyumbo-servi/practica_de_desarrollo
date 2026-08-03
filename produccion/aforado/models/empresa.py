@@ -24,7 +24,9 @@ class Empresa(Base):
             ForeignKey("clientes.id")
         )
     
-    cliente: Mapped["Cliente"] = relationship()
+    cliente: Mapped["Cliente"] = relationship(
+        back_populates="empresa"
+    )
 
     registros: Mapped[list["RegistroServicio"]] = relationship(
         back_populates="empresa"
