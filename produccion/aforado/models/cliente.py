@@ -1,13 +1,25 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship
+from typing import TYPE_CHECKING
+
+from sqlalchemy import String
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from data.conexion import Base
+
+
+if TYPE_CHECKING:
+    from .registro_servicio import RegistroServicio
+
 
 class Cliente(Base):
     __tablename__ = "clientes"
 
-    id = Column(Integer, primary_key=True, index=True)
-    nombre = Column(String)
-    contrato = Column(String)
-    empresa_id = Column(ForeignKey("empresas.id"))
+    id: Mapped[int] = mapped_column(primary_key=True)
 
-empresa = relationship("Empresa")
+    nombre: Mapped[str] = mapped_column(
+        String(100),
+        unique=True
+    )
+
+    registros: Mapped[list["RegistroServicio"]] = relationship(
+        back_populates="cliente"
+    )

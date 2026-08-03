@@ -1,7 +1,7 @@
 from nicegui import ui
 
 
-@ui.page
+@ui.page('/produccion')
 def produccion():
 
     with ui.card().classes(
@@ -45,3 +45,10 @@ def produccion():
         tabla.update()
 
     ui.button('Agregar', on_click=agregar)
+
+
+    with ui.footer().classes('bg-yellow-400 text-black justify-around'):
+        ui.button('Crear cliente', on_click=lambda: ui.navigate.to('/Newcliente')).props('bg-yellow-450 text-color=black')
+        ui.button('Crear Empresa', on_click=lambda: ui.navigate.to('/NewEmpresa')) .props('bg-yellow-450 text-color=black')
+        ui.button('Produccion', on_click=lambda: ui.navigate.to('/produccion')) .props('bg-yellow-450 text-color=black')
+        ui.button('inicio', on_click=lambda: ui.navigate.to('/')).props('bg-yellow-450 text-color=black')
